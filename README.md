@@ -21,3 +21,7 @@ insertion_sort() : 89.2365 seconds
 v1/v2 are the same.
 
 size = 1000000
+ort() : 0.33352 seconds
+v1/v2 are different.
+insertion_sort() : 9086 seconds
+v1/v2 are the same.

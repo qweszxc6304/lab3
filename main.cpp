@@ -1,23 +1,27 @@
+#include <iostream>
+#include <cstdlib>
+#include <algorithm>
 #include <fstream>
 #include <vector>
-#include <algorithm>
-#include "lab3.h"
+using namespace std;
 int main()
 {
 	int n;
 	int sum = 0;
-	vector<int> v(8);
-	ifstream inFile("file.in", ios::in);
-	if(!inFile){
+	ifstream infile("file.in", ios::in);
+	if(!infile){
 		cerr << "Failed opening" << endl;
 		exit(1);
 	}
-	while(inFile >> n >> v.at(0) >> v.at(1) >> v.at(2) >> v.at(3) >> v.at(4) >> v.at(5) >> v.at(6) >> v.at(7)){
-		sort(v.begin(), v.end());
-		for(int k = 7; k > 2; --k){
-			sum += v.at(k);
-		}
+	infile >> n;
+	vector<int> v(n);
+	for(int i = 0; i < n; ++i){
+		infile >> v.at(i);
 	}
-	cout << "Total weight = " << sum << endl;
+	sort(v.begin(), v.end());
+	for(int k = n - 1; k > n - 6; --k){
+		sum += v.at(k);
+	}
+	cout << "total weight = " << sum << endl;
 	return 0;
 }
